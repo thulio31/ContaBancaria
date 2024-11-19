@@ -10,8 +10,8 @@ namespace ContaBancaria
     {
         public double LimiteDeCredito { get; set; }
 
-        public ContaCorrente(string titular, double limiteDeCredito)
-            : base (titular)
+        public ContaCorrente(string titular, double saldo,double limiteDeCredito)
+            : base (titular, saldo)
         {
             LimiteDeCredito = limiteDeCredito;
         }

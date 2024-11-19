@@ -8,52 +8,52 @@ namespace ContaBancaria
 {
     public class Conta : IConta
     {
+        
         public string Titular { get; set; }
         public double Saldo { get; set; }
 
-        public Conta(string titular)
+        public Conta(string titular, double saldo)
         {
             Titular = titular;
-            Saldo = 0.0;
+            Saldo = saldo;
         }
 
         public virtual void Depositar(double valor)
         {
-            if (valor > 0)
-            {
-                Saldo += valor;
-                Console.WriteLine($"Depósito de R$ {valor} realizado com sucesso.");
-            }
-            else
-            {
-                Console.WriteLine("Valor de depósito inválido.");
-            }
+            Saldo = Saldo + valor;
         }
+
+        public virtual void ExibirInformacoes()
+        {
+            Console.WriteLine($"Titular: {Titular}" +
+                $"\nSaldo: {Saldo}"); 
+        }
+
         public virtual bool Sacar(double valor)
         {
-            if (valor <= Saldo)
-            {
-                Saldo -= valor;
-                Console.WriteLine($"Saque de R$ {valor} realizado com sucesso.");
-                return true;
+            double Saldocalcu = Saldo - valor;
+            if (Saldocalcu < 0)
+            {  
+                Saldo = Saldo - valor;
+                return false;
             }
             else
             {
-                Console.WriteLine("Saldo insuficiente para saque.");
-                return false;
+                return true;
             }
         }
-        public void Transferir(double valor, IConta contaDestino)
+
+        public virtual void Transferir(double valor, IConta contaDestino)
         {
-            if (Sacar(valor))
+            double Saldocalcu = Saldo - valor;
+            if (Saldocalcu > 0)
             {
                 contaDestino.Depositar(valor);
             }
-        }
-        public virtual void ExibirInformacoes() 
-        {
-            Console.WriteLine($"Titular: {Titular}");
-            Console.WriteLine($"Saldo: {Saldo}");
+            else if (Saldocalcu < 0)
+            {
+                Console.WriteLine("Saldo insuficiente");
+            }
         }
     }
 }

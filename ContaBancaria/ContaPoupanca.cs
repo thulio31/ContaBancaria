@@ -8,5 +8,15 @@ namespace ContaBancaria
 {
     public class ContaPoupanca : Conta
     {
+        public double TaxaJuros { get; set; }
+        public ContaPoupanca(string titular, double saldo, double taxajuros) : base(titular, saldo) 
+        {
+            TaxaJuros = taxajuros;
+        }
+        public void Depositar(double valor)
+        {
+            Saldo = Saldo + valor + (valor * TaxaJuros);
+        }
+
     }
 }
