@@ -10,38 +10,8 @@ using System.Threading.Tasks;
 namespace Core._01Service
 {
    
-        public class ContaCorrenteService : IContaCorrenteService
-        {
-            private readonly IContaCorrenteRepository repository;
-            public ContaCorrenteService(IContaCorrenteRepository _repository)
-            {
-                repository = _repository;
-            }
-
-            public void Adicionar(ContaCorrenteService cont)
-            {
-                repository.Adicionar(cont);
-            }
-
-            public ContaCorrenteService BuscarPorId(int id)
-            {
-                return repository.Buscar(id);
-            }
-
-            public void Editar(ContaCorrenteService cont)
-            {
-                repository.Editar(caminhao);
-            }
-
-            public List<ContaCorrenteService> Listar()
-            {
-                return repository.Listar();
-            }
-
-            public void Remover(int id)
-            {
-                repository.Delete(id);
-            }
-
+    public class ContaCorrenteService 
+    {
+           
     }
 }

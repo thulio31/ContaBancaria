@@ -1,4 +1,5 @@
-﻿using Core._02Repository;
+﻿using Core._01Service;
+using Core._02Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace Core.Interfaces.Repository
         void Editar(ContaCorrenteRepository cont);
         void Remover(int id);
         ContaCorrenteRepository Buscar(int id);
+        void Adicionar(ContaCorrenteService cont);
     }
 }
