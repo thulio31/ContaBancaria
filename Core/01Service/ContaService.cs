@@ -22,24 +22,24 @@ namespace Core._01Service
             repository.Adicionar(cont);
         }
 
-        public Caminhao BuscarPorId(int id)
+        public Conta BuscarPorId(int id)
         {
             return repository.Buscar(id);
         }
 
-        public void Editar(Caminhao caminhao)
+        public void Editar(Conta cont)
         {
-            repository.Editar(caminhao);
+            repository.Editar(cont);
         }
 
-        public List<Caminhao> Listar()
+        public List<Conta> Listar()
         {
             return repository.Listar();
         }
 
         public void Remover(int id)
         {
-            repository.Delete(id);
+            repository.Remover(id);
         }
     }
 }

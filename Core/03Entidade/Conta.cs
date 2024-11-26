@@ -8,7 +8,7 @@ namespace ContaBancaria
 {
     public class Conta : IConta
     {
-        
+        public int Id { get; set; } 
         public string Titular { get; set; }
         public double Saldo { get; set; }
 
@@ -17,7 +17,10 @@ namespace ContaBancaria
             Titular = titular;
             Saldo = saldo;
         }
+        public Conta()
+        {
 
+        }
         public virtual void Depositar(double valor)
         {
             Saldo = Saldo + valor;
